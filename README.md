@@ -9,13 +9,13 @@ It contains three keys **dataElementId**, **orgUnitId**, **period**. You have to
 ### To get dataElementId value:
   * **http://{url_here}/api/dataElements?filter=valueType:eq:INTEGER_POSITIVE&paging=false.**
   * This api gives response of all the data elements of type positive integer present in the dhis system along with ids.
-  * You can use any id as a value in that xml.
+  * You can use any id as a value for dataElementId key.
 ### To get org unitId value:
   * **http://{url_here}/api/organisationUnits?paging=false.**
   * This api gives response of all the org units present in the system along with ids.
-  * You can use any id as a value in that xml.
+  * You can use any id as a value for orgUnitId key.
 ### To get period value:
-  * Give period only in Year format Ex: 2016
+  * Give period only in Year format Ex: 2016 for period key
 
 ## What config.sh contains??
   * config.sh file where you configure target application details.
@@ -47,14 +47,16 @@ Ex: ./concurrent_read.sh 15 10 (Make sure number requests should always greater 
   ```
 
 #### how to run export_anlaytics.sh
-* **NOTE:** Before you run the script, you have configure config.json file and give different value for dataElementId.
+* **NOTE:** 
+  * Before you run the script, you have configure config.json file and give different value for dataElementId as mentioned in     the **To get dataElementId** value section. 
+  * run ```node node dataValuesGeneratedScript.js``` to get differnt dataValues json to post.
 * Same as the above command.
 ```
 Ex: ./export_analytics.sh 15 10
 ```
 ### how to run metadata_sync.sh
-* **NOTE:** Before you run the script, you should have atleast one version present in the targer dhis system.
-* Same as the aboce command.
+* **NOTE:** Before you run the script, you should have atleast one version present in the target dhis system.
+* Same as the above command.
 ```
 Ex: ./metadata_Sync.sh 15 10
 ```
